@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXXXXXXXXXXXX</title>
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/animations.css"> 
+</head>
+<body>
+    <div class="main">
+        <div class="containerA">
+            <form id="form_login" class="form-login form-flexA">
+                <label class="text-style">E-mail</label>
+                <input class="text-style" type="text" placeholder="nome@empresa.com.br">
+                
+                <label class="text-style mt-40">Senha</label>
+                <input class="text-style" type="password" placeholder="************************">
+            
+                <p class="text-style mt-40">Entrar</p>
+                <p class="text-style mt-80" id="btn_toRegister">Criar uma conta</p>
+            </form>
+
+            <form id="form_register" class="form-register form-flexB">
+                <label class="text-style mt-20">Nome da empresa</label>
+                <input class="text-style" type="text" placeholder="Moss inc">
+
+                <label class="text-style mt-20">E-mail</label>
+                <input class="text-style" type="text" placeholder="nome@empresa.com.br">
+
+                <label class="text-style mt-20">Senha</label>
+                <input class="text-style" type="text" placeholder="************************">
+                
+                <label class="text-style mt-20">Confirme sua senha</label>
+                <input class="text-style" type="password" placeholder="************************">
+            
+                <p class="text-style mt-40">Cadastrar</p>
+                <p class="text-style mt-80" id="btn_toLogin">Já tenho uma conta</p>
+            </form>
+        </div>
+
+        <div class="containerB">
+            <img class="logo-moss" src="./img/MOSS_logo.png" alt="">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+			integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+			crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $('#form_register').hide();
+
+        $('#btn_toRegister').click(() => {
+
+            $('.containerA').removeClass('slide-left');
+            $('.containerB').removeClass('slide-right');
+
+            $('.containerA').addClass('slide-right');
+            $('.containerB').addClass('slide-left');
+
+            setTimeout(() => {
+                $('.form-flexA').css('display', 'none');
+                $('.form-flexB').css('display', 'flex');
+            }, 300);
+
+            setTimeout(() => {
+                $('.main').css('flex-direction', 'row-reverse');
+            }, 995);
+        });
+        
+        $('#btn_toLogin').click(() => {
+
+            $('.containerA').removeClass('slide-right');
+            $('.containerB').removeClass('slide-left');
+
+            $('.containerA').addClass('slide-left');
+            $('.containerB').addClass('slide-right');
+
+            setTimeout(() => {
+                $('.form-flexA').css('display', 'flex');
+                $('.form-flexB').css('display', 'none');
+            }, 300);
+
+            setTimeout(() => {
+                $('.main').css('flex-direction', 'row');
+            }, 995);
+        }); 
+    });
+</script>
